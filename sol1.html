@@ -110,16 +110,16 @@ void postorder(Node* root)
 
 int main()
 {
-    Node* root = new Node(1);
-    root-&gt;left = new Node(2);
-    root-&gt;right = new Node(3);
-    root-&gt;left-&gt;left = new Node(4);
-    root-&gt;left-&gt;right = new Node(5);
-    root-&gt;right-&gt;left = new Node(6);
-    root-&gt;right-&gt;right = new Node(7);
-    root-&gt;left-&gt;left-&gt;left = new Node(8);
-    root-&gt;left-&gt;left-&gt;right = new Node(9);
-    root-&gt;right-&gt;right-&gt;left = new Node(10);
+    Node* root = new Node(10);
+    root-&gt;left = new Node(20);
+    root-&gt;right = new Node(30);
+    root-&gt;left-&gt;left = new Node(44);
+    root-&gt;left-&gt;right = new Node(25);
+    root-&gt;right-&gt;left = new Node(16);
+    root-&gt;right-&gt;right = new Node(72);
+    root-&gt;left-&gt;left-&gt;left = new Node(85);
+    root-&gt;left-&gt;left-&gt;right = new Node(19);
+    root-&gt;right-&gt;right-&gt;left = new Node(60);
 
     cout &lt;&lt; "Inorder Traversal: ";
     inorder(root);
