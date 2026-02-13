@@ -2,70 +2,73 @@
 <html>
 <head>
     <title>Binary Tree Traversal Program</title>
+
     <style>
         body {
-            font-family: "Courier New", monospace;
-            background-color: #f4f6f9;
-            padding: 30px;
+            font-family: "Times New Roman", serif;
+            margin: 20px;
+            background-color: #f9f9f9;
         }
 
-        .exam-container {
-            border: 4px solid black;
-            padding: 25px;
-            background-color: white;
+        .page {
+            border: 4px double black;   /* Full border restored */
+            padding: 20px;
+            max-width: 1100px;
+            margin: auto;
+            background: white;
         }
 
-        .question {
-            font-size: 18px;
+        .question-box {
+            border: 3px solid black;
+            padding: 15px;
             margin-bottom: 20px;
             font-weight: bold;
         }
 
-        .code-block {
+        .program-block {
             border: 3px solid black;
+            padding: 15px;
+        }
+
+        h2 {
+            text-align: center;
+            text-decoration: underline;
+            margin-bottom: 15px;
+        }
+
+        pre {
+            background: #f4f4f4;
+            border: 2px solid black;
             padding: 20px;
-            background-color: #fdfdfd;
+            font-size: 15px;
             line-height: 1.8;
-            white-space: pre;
             overflow-x: auto;
+            margin: 0;
         }
 
-        .output-block {
-            margin-top: 30px;
-            border: 3px solid black;
-            padding: 20px;
-            background-color: #fafafa;
-            line-height: 1.8;
-            white-space: pre;
-        }
-
-        .output-title {
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
     </style>
 </head>
 
 <body>
 
-<div class="exam-container">
+<div class="page">
 
-<div class="question">
-Create a binary tree of your choice containing 10 nodes using C++. 
-Write functions to display the following traversals of the tree:
-Inorder traversal, Preorder traversal, Postorder traversal.
-Call each function one by one to display the tree traversals.
-</div>
+    <div class="question-box">
+        Q1. Create a binary tree containing 10 nodes using C++. 
+        Write functions to display Inorder, Preorder, and Postorder traversals. 
+        Call each function one by one to display the tree traversals.
+    </div>
 
-<div class="code-block">
+    <div class="program-block">
 
-#include &lt;iostream&gt;
+        <h2>C++ Program</h2>
+
+<pre>#include &lt;iostream&gt;
 using namespace std;
 
 class Node
 {
-    public:
-
+public:
     int data;
     Node* left;
     Node* right;
@@ -78,85 +81,59 @@ class Node
     }
 };
 
-
 void inorder(Node* root)
 {
-    if(root == NULL)
+    if (root == NULL)
         return;
-
     inorder(root-&gt;left);
     cout &lt;&lt; root-&gt;data &lt;&lt; " ";
     inorder(root-&gt;right);
 }
 
-
 void preorder(Node* root)
 {
-    if(root == NULL)
+    if (root == NULL)
         return;
-
     cout &lt;&lt; root-&gt;data &lt;&lt; " ";
     preorder(root-&gt;left);
     preorder(root-&gt;right);
 }
 
-
 void postorder(Node* root)
 {
-    if(root == NULL)
+    if (root == NULL)
         return;
-
     postorder(root-&gt;left);
     postorder(root-&gt;right);
     cout &lt;&lt; root-&gt;data &lt;&lt; " ";
 }
 
-
 int main()
 {
-    Node* root = new Node(10);
-
-    root-&gt;left = new Node(20);
-    root-&gt;right = new Node(30);
-
-    root-&gt;left-&gt;left = new Node(44);
-    root-&gt;left-&gt;right = new Node(25);
-
-    root-&gt;right-&gt;left = new Node(16);
-    root-&gt;right-&gt;right = new Node(72);
-
-    root-&gt;left-&gt;left-&gt;left = new Node(85);
-    root-&gt;left-&gt;left-&gt;right = new Node(19);
-
-    root-&gt;right-&gt;right-&gt;left = new Node(60);
-
+    Node* root = new Node(1);
+    root-&gt;left = new Node(2);
+    root-&gt;right = new Node(3);
+    root-&gt;left-&gt;left = new Node(4);
+    root-&gt;left-&gt;right = new Node(5);
+    root-&gt;right-&gt;left = new Node(6);
+    root-&gt;right-&gt;right = new Node(7);
+    root-&gt;left-&gt;left-&gt;left = new Node(8);
+    root-&gt;left-&gt;left-&gt;right = new Node(9);
+    root-&gt;right-&gt;right-&gt;left = new Node(10);
 
     cout &lt;&lt; "Inorder Traversal: ";
     inorder(root);
 
-    cout &lt;&lt; endl;
-
-    cout &lt;&lt; "Preorder Traversal: ";
+    cout &lt;&lt; "\nPreorder Traversal: ";
     preorder(root);
 
-    cout &lt;&lt; endl;
-
-    cout &lt;&lt; "Postorder Traversal: ";
+    cout &lt;&lt; "\nPostorder Traversal: ";
     postorder(root);
 
     return 0;
-}
+}</pre>
 
-</div>
-
-<div class="output-block">
-<div class="output-title">Output:</div>
-
-Inorder Traversal: 85 44 19 20 25 10 16 30 60 72  
-Preorder Traversal: 10 20 44 85 19 25 30 16 72 60  
-Postorder Traversal: 85 19 44 25 20 16 60 72 30 10  
-
-</div>
+    </div>
 
 </div>
 
