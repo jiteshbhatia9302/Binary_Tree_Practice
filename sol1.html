@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Binary Tree Traversal Program</title>
+
+    <style>
+        body {
+            font-family: "Times New Roman", serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+
+        .page {
+            border: 4px double black;   /* Full border restored */
+            padding: 20px;
+            max-width: 1100px;
+            margin: auto;
+            background: white;
+        }
+
+        .question-box {
+            border: 3px solid black;
+            padding: 15px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .program-block {
+            border: 3px solid black;
+            padding: 15px;
+        }
+
+        h2 {
+            text-align: center;
+            text-decoration: underline;
+            margin-bottom: 15px;
+        }
+
+        pre {
+            background: #f4f4f4;
+            border: 2px solid black;
+            padding: 20px;
+            font-size: 15px;
+            line-height: 1.8;
+            overflow-x: auto;
+            margin: 0;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="page">
+
+    <div class="question-box">
+        Q1. Create a binary tree containing 10 nodes. 
+        Write functions to display Inorder, Preorder, and Postorder traversals. 
+        Call each function one by one to display the tree traversals.
+    </div>
+
+    <div class="program-block">
+
+        <h2>C++ Program</h2>
+
+<pre>#include &lt;iostream&gt;
+using namespace std;
+
+class Node
+{
+public:
+    int data;
+    Node* left;
+    Node* right;
+
+    Node(int value)
+    {
+        data = value;
+        left = NULL;
+        right = NULL;
+    }
+};
+
+void inorder(Node* root)
+{
+    if (root == NULL)
+        return;
+    inorder(root-&gt;left);
+    cout &lt;&lt; root-&gt;data &lt;&lt; " ";
+    inorder(root-&gt;right);
+}
+
+void preorder(Node* root)
+{
+    if (root == NULL)
+        return;
+    cout &lt;&lt; root-&gt;data &lt;&lt; " ";
+    preorder(root-&gt;left);
+    preorder(root-&gt;right);
+}
+
+void postorder(Node* root)
+{
+    if (root == NULL)
+        return;
+    postorder(root-&gt;left);
+    postorder(root-&gt;right);
+    cout &lt;&lt; root-&gt;data &lt;&lt; " ";
+}
+
+int main()
+{
+    Node* root = new Node(10);
+    root-&gt;left = new Node(20);
+    root-&gt;right = new Node(30);
+    root-&gt;left-&gt;left = new Node(44);
+    root-&gt;left-&gt;right = new Node(25);
+    root-&gt;right-&gt;left = new Node(16);
+    root-&gt;right-&gt;right = new Node(72);
+    root-&gt;left-&gt;left-&gt;left = new Node(85);
+    root-&gt;left-&gt;left-&gt;right = new Node(19);
+    root-&gt;right-&gt;right-&gt;left = new Node(10);
+
+    cout &lt;&lt; "Inorder Traversal: ";
+    inorder(root);
+
+    cout &lt;&lt; "\nPreorder Traversal: ";
+    preorder(root);
+
+    cout &lt;&lt; "\nPostorder Traversal: ";
+    postorder(root);
+
+    return 0;
+}</pre>
+
+    </div>
+
+</div>
+
+</body>
+</html>
